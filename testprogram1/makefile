@@ -1,8 +1,8 @@
-TARGET = testprogram1.exe
+TARGET  = testprogram1.exe
 INC_DIR = ./inc/
 SRC_DIR = ./src/
 CC=g++
-CFLAGS = -I ${INC_DIR} -g -Wall -O3
+CFLAGS  = -I ${INC_DIR} -g -Wall -O3
 SRC     = $(wildcard $(SRC_DIR)*.cpp)
 OBJ     = $(SRC:%.cpp=%.o)
 DEP     = $(SRC:%.cpp=%.d)
