@@ -13,12 +13,12 @@ public:
     {
         TRACE(dummy, "vector<T>::vector(int)");
         ++count;
-        std::cout << " count = " << count << endl;
+        COUNT()
     }
     ~vector()
     {
         TRACE(dummy, "vector<T>::~vector");
-        std::cout << " count = " << count << endl;
+        COUNT()
         --count;
     }
     T &elem(int i) { return v[i]; }
@@ -40,19 +40,19 @@ public:
     {
         TRACE(dummy, "vector<void*>::vector()");
         ++count;
-        std::cout << " count = " << count << endl;
+        COUNT()
     }
     ~vector()
     {
         TRACE(dummy, "vector<void*>::~vector");
-        std::cout << " count = " << count << endl;
+        COUNT()
         --count;
     }
     vector(int i) : v(i)
     {
         TRACE(dummy, "vector<void*>::vector(int)");
         ++count;
-        std::cout << " count = " << count << endl;
+        COUNT()
     }
     void *&operator[](int i) { return v[i]; }
     void *&elem(int i) { return operator[](i); }

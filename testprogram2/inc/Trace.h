@@ -41,8 +41,10 @@ private:
 
 #ifdef __TRACE__
 #define TRACE(v, n) Trace v(n)
+#define COUNT() std::cout << " count = " << count << endl;
 #else
-#define TRACE(v, n)
+#define TRACE(v, n) 
+#define COUNT()
 #endif
 
 #endif

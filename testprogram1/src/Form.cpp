@@ -1,8 +1,7 @@
 #include "Form.h"
-
+#include <string>
 using std::ostringstream;
 using std::to_string;
-using namespace std;
 
 Form::Form(int pre) : prec(pre) { type = 0; }
 

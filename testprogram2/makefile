@@ -1,0 +1,27 @@
+TARGET = testprogram2.exe
+INC_DIR = ./inc/
+SRC_DIR = ./src/
+CC=g++
+CFLAGS = -D__TRACE__ -I ${INC_DIR} -g -Wall -ansi -O3
+# CFLAGS = -I ${INC_DIR} -g -Wall -ansi
+SRC     = $(wildcard $(SRC_DIR)*.cpp)
+OBJ     = $(SRC:%.cpp=%.o)
+DEP     = $(SRC:%.cpp=%.d)
+
+all: ${TARGET}
+
+$(TARGET) : $(OBJ)
+	$(CC) $(CFLAGS) $^ -o $@ 
+
+-include $(DEP)
+
+%.o : %.cpp
+	$(CC) $(CFLAGS) -MMD -c $< -o $@
+
+.PHONY: clean exe
+
+clean :
+	rm -f $(TARGET) $(OBJ) $(DEP)
+
+exe :
+	@./$(TARGET)
